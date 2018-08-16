@@ -1,0 +1,18 @@
+{
+    "name": "skugubaev/rpn",
+    "description": "Simple calculator",
+    "type": "Libary",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sergei Kugubaev",
+            "email": "skugubaev@simtechdev.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Skugubaev\\": "src"
+        }
+    },
+    "require": {}
+}
