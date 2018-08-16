@@ -193,6 +193,6 @@ Class RPN {
         $rpn = $this->convertToReversePolishNotation($str);
         $result = $this->calculateReversePolishNotation($rpn);
         
-        echo "Skugubaev says, that $string = $result \n";
+        return "Skugubaev says, that $string = $result \n";
     }
 }
