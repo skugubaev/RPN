@@ -58,7 +58,7 @@ Class RPN {
                 case ')':
                     $operand = array_pop($this->stack);
                     while ($operand !=  '(') {
-                        $result = $result . $operand . ' ';
+                        $result .= $operand . ' ';
                         $operand = array_pop($this->stack);
                     }
                     $i++;
@@ -71,7 +71,7 @@ Class RPN {
                             $i++;
                             $symbol = mb_substr($str, $i, 1);
                         }
-                        $result = $result . $operand . ' ';
+                        $result .= $operand . ' ';
                     } elseif (in_array($symbol, $this->operations)) {
                         if (empty($this->stack)) {
                             array_push($this->stack, $symbol);
@@ -81,7 +81,7 @@ Class RPN {
 
                             if ($weight <= $this->getOperationWeight($operand)) {
                                 while ($weight <= $this->getOperationWeight($operand)) {
-                                    $result = $result . $operand . ' ';
+                                    $result .= $operand . ' ';
                                     if (empty($this->stack)) { 
                                         break; 
                                     }
@@ -105,8 +105,8 @@ Class RPN {
 
         }
 
-        if (!empty($this->stack)) {
-            $result = $result . implode(' ', $this->stack);
+        while (!empty($this->stack)) {
+            $result .= array_pop($this->stack) . ' ';
         }
 
         return $result;
@@ -123,10 +123,10 @@ Class RPN {
                 $result = 2;
                 break;
             case '*':
-                $result = 2;
+                $result = 3;
                 break;
             case '/':
-                $result = 2;
+                $result = 3;
                 break;
             case '(':
                 $result = 1;
